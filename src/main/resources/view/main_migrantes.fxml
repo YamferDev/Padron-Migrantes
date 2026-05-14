@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pe.edu.upeu.controller.MigranteController">
+    
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding><Insets top="15" bottom="15"/></padding>
+            <Label text="REGISTRO DE PADRÓN DE MIGRANTES" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" prefWidth="300" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-radius: 5; -fx-background-radius: 5;">
+            <BorderPane.margin>
+                <Insets left="20" bottom="20"/>
+            </BorderPane.margin>
+            <padding><Insets left="20" right="20" top="15" bottom="15"/></padding>
+            
+            <Label text="Nombre Completo:"/>
+            <TextField fx:id="txtNombre" styleClass="form-control"/>
+            
+            <Label text="País de Origen:"/>
+            <TextField fx:id="txtPais" styleClass="form-control"/>
+            
+            <Label text="Tipo de Visa:"/>
+            <ComboBox fx:id="cbVisa" prefWidth="260" promptText="Seleccione Visa" styleClass="btn, btn-default"/>
+            
+            <Label text="Fecha de Ingreso:"/>
+            <DatePicker fx:id="dpFecha" styleClass="form-control"/>
+            
+            <Label text="Estatus Migratorio:"/>
+            <!-- Usamos ComboBox como pidió el ejercicio -->
+            <ComboBox fx:id="cbEstatus" prefWidth="260" promptText="Seleccione Estatus" styleClass="btn, btn-default"/>
+            
+            <HBox spacing="10" style="-fx-padding: 20 0 0 0;">
+                <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar" styleClass="btn, btn-success"/>
+                <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar" styleClass="btn, btn-danger"/>
+                <Button fx:id="btnLimpiar" text="Limpiar" onAction="#limpiar" styleClass="btn, btn-warning"/>
+            </HBox>
+        </VBox>
+    </left>
+    
+    <center>
+        <VBox>
+            <padding><Insets left="10" right="20" top="0" bottom="20"/></padding>
+            <TableView fx:id="tvMigrantes" VBox.vgrow="ALWAYS">
+                <!-- Las columnas las definiremos desde el Controlador -->
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>
